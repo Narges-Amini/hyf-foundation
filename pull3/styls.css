@@ -1,0 +1,95 @@
+body {
+	margin: 0;
+	padding: 2rem;
+	background-color: #030e05;
+	color: #24332c;
+	font-family: "DM Sans", sans-serif;
+	line-height: 1.6;
+}
+
+.about-me__title {
+    font-size: 2rem;
+     text-align: left;
+    margin-bottom: 1rem;
+    color: #0d3a2d;
+}
+
+
+.about-me {
+	max-width: 640px;
+    text-align: left;
+	margin: 2rem auto;
+	padding: 2rem;
+	background-color: #ffffff;
+	border: 1px solid #d7e1da;
+	border-radius: 8px;
+}
+
+h1 {
+	margin-top: 0;
+	color: #0d3a2d;
+	text-align: center;
+}
+
+.profile-photo {
+	display: block;
+	width: 160px;
+	height: 160px;
+	margin: 0 0 1.5rem;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+li {
+	margin-bottom: 0.5rem;
+}
+
+button {
+	padding: 0.6rem 1rem;
+	border: 0;
+	border-radius: 4px;
+	background-color: #08241b;
+	color: #ffffff;
+	font: inherit;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #10513e;
+}
+
+.page-footer {
+	margin-top: 2rem;
+	color: #d7e1da;
+	text-align: center;
+}
+
+.page-footer p {
+	margin: 0;
+}
+
+.linkedin-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+	color: #d7e1da;
+	text-decoration: none;
+}
+
+.linkedin-link:hover {
+	text-decoration: underline;
+}
+
+.linkedin-icon {
+	display: inline-grid;
+	width: 1.25rem;
+	height: 1.25rem;
+	place-items: center;
+	border-radius: 2px;
+	background-color: #0a66c2;
+	color: #ffffff;
+	font-size: 0.85rem;
+	font-weight: 700;
+	line-height: 1;
+}
