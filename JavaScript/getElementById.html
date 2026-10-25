@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Web Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container">
+        <div class="brand">My Learning Page</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero container">
+        <div class="hero-text">
+          <p class="eyebrow">Learning HTML, CSS & JavaScript</p>
+          <h1>Build something simple and useful.</h1>
+          <p>
+            This page is a basic structure to help you practice layout, styling,
+            and interactivity.
+          </p>
+          <div class="hero-actions">
+            <button id="greetButton" class="primary-btn">Click for a message</button>
+            <a href="#about" class="secondary-btn">Learn more</a>
+          </div>
+          <p id="message" class="message">Welcome! Start building your first project.</p>
+        </div>
+        <div class="hero-box">
+          <div class="mini-card">
+            <span>HTML</span>
+            <strong>Structure</strong>
+          </div>
+          <div class="mini-card">
+            <span>CSS</span>
+            <strong>Design</strong>
+          </div>
+          <div class="mini-card">
+            <span>JavaScript</span>
+            <strong>Interaction</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="info-section container">
+        <h2>About this page</h2>
+        <p>
+          A strong webpage usually has a clear header, a main content area, and a
+          footer. You can add sections like features, projects, or a contact form.
+        </p>
+      </section>
+
+      <section id="projects" class="cards container">
+        <article class="card">
+          <h3>Section 1</h3>
+          <p>Use headings and paragraphs to organize your content clearly.</p>
+        </article>
+        <article class="card">
+          <h3>Section 2</h3>
+          <p>Add colors, spacing, and layout to make your page look polished.</p>
+        </article>
+        <article class="card">
+          <h3>Section 3</h3>
+          <p>Use JavaScript to make buttons, forms, and text respond to user actions.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="container footer-content">
+        <p>© 2026 My Learning Page</p>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
