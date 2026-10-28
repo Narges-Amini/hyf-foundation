@@ -98,3 +98,4 @@ function getReply(command) {
 //getReply("What is 12 + 5");
 // getReply("Set a timer for 4 minutes");
 //getReply("My brain has logged out");
+//
