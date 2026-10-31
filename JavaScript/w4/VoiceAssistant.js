@@ -11,59 +11,71 @@ function getReply(command) {
     command = command.split(" ");
     name = command.at(-1);
     name = name[0].toUpperCase() + name.slice(1);
-    console.log(`Nice to meet you ${name}!`);
+    return `Nice to meet you ${name}!`;
   } else if (command.toLowerCase() === "what is my name?".toLowerCase()) {
-    console.log(`${name}`);
+    return name;
   }
 
   //2nd dialogue
-  else if (command.toLowerCase() === "Add fishing to my todo".toLowerCase()) {
-    todos.push("fishing");
-    console.log(`fishing added to your todos!`);
-  } else if (
-    command.toLowerCase() ===
-    "Add singing in the shower to my todo".toLowerCase()
+  else if (
+    command.toLowerCase().startsWith("add ") &&
+    command.toLowerCase().endsWith(" to my todo")
   ) {
-    todos.push("singing in the shower");
+    let task = command.slice(4, -11);
+    let taskCap = task.charAt(0).toUpperCase() + task.slice(1);
+    todos.push(taskCap);
+    return `${taskCap} added to your todos!`;
   }
   //3rd dialogue
   else if (
-    command.toLowerCase() === "Remove fishing from my todo".toLowerCase()
+    command.toLowerCase().startsWith("remove ") &&
+    command.toLowerCase().endsWith(" from your todo")
   ) {
-    todos.pop("fishing");
-    console.log(`Removed fishing from your todo!`);
-  } else if (command.toLowerCase() === "What is on my todo?".toLowerCase()) {
-    console.log(`You have ${todos.length} todos: ${todos.join()}`);
+    let start = command.indexOf("remove ") + 8;
+    let end = command.toLowerCase().indexOf(" from your todo");
+    let item = command.slice(start, end);
+    let itemCap = item.charAt(0).toUpperCase() + item.slice(1);
+    let index = todos.indexOf(itemCap);
+    if (index !== -1) {
+      return `${itemCap} removed from your todos!`;
+    } else {
+      return `${itemCap} was not found in your todos!`;
+    }
   }
+
   //4th dialogue
   else if (command.toLowerCase() === "What day is it today?".toLowerCase()) {
-    let day = new Date().getDay();
+    let day = new Date().getDate();
     let month = new Date().getMonth();
     let year = new Date().getFullYear();
     let assignToMonth = {
-      1: "January",
-      2: "February",
-      3: "March",
-      4: "April",
-      5: "May",
-      6: "June",
-      7: "July",
-      8: "August",
-      9: "September",
-      10: "October",
-      11: "November",
-      12: "December",
+      0: "January",
+      1: "February",
+      2: "March",
+      3: "April",
+      4: "May",
+      5: "June",
+      6: "July",
+      7: "August",
+      8: "September",
+      9: "October",
+      10: "November",
+      11: "December",
     };
-    console.log(`${day}. of ${assignToMonth[month]} ${year}`);
+    return `${day}. of ${assignToMonth[month]} ${year}`;
   }
 
   //5th dialogue
-  else if (command.toLowerCase().startsWith("what is ")) {
+  else if (
+    command.toLowerCase().startsWith("what is ") &&
+    !/[0-9]/.test(command)
+  ) {
+    return `There are no numbers!`;
+  } else if (command.toLowerCase().startsWith("what is ")) {
     let numbers = command.match(/-?\d+(?:\.\d+)?/g).map(Number);
     let operator = command.match(/[+*/-]/)?.[0];
     if (!numbers || numbers.length !== 2 || !operator) {
-      console.log("Invalid calculation");
-      return;
+      return `Invalid calculation`;
     } else if (operator === "+") {
       result = numbers[0] + numbers[1];
     } else if (operator === "-") {
@@ -73,29 +85,38 @@ function getReply(command) {
     } else if (operator === "/") {
       result = numbers[0] / numbers[1];
     }
-    console.log(result);
+    return result;
   }
 
   //6th dialogue
   else if (
-    command.toLowerCase() === "Set a timer for 4 minutes".toLowerCase()
+    command.toLowerCase().startsWith("set a timer for") &&
+    command.toLowerCase().endsWith("minutes")
   ) {
-    setTimeout(
-      () => {
-        console.log("Timer done");
-      },
-      4 * 60 * 1000,
-    );
-  } else if (
-    command.toLowerCase() === "My brain has logged out".toLowerCase()
-  ) {
-    console.log("Take a coffee 💀");
+    if (/[0-9]/.test(command)) {
+      let timeTimer = Number(command.match(/[0-9]+/));
+      setTimeout(
+        () => {
+          console.log("Timer done!");
+        },
+        timeTimer * 60 * 1000,
+      );
+      return `Timer set for ${timeTimer} minutes!`;
+    } else {
+      return "A number was found!";
+    }
+  } else if (command.toLowerCase() === "my brain has logged out") {
+    return "Take a coffee 💀";
+  } else {
+    return "Review your text!";
   }
 }
 
-// getReply("Add fishing to my todo");
-// getReply("Add singing in the shower to my todo");
-//getReply("What is 12 + 5");
-// getReply("Set a timer for 4 minutes");
-//getReply("My brain has logged out");
-//
+//console.log(getReply("Hello my name is Narges"));
+// console.log(getReply("Add reading to my todo"));
+// console.log(getReply("Remove reading from your todo"));
+// console.log(getReply("What day is it today?"));
+// console.log(getReply("what is Hello World?"));
+// console.log(getReply("What is 12 + 5"));
+//console.log(getReply("Set a timer for 1 minutes"));
+//console.log(getReply("My brain has logged out"));
