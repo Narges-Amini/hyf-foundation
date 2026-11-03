@@ -31,12 +31,13 @@ function getReply(command) {
     command.toLowerCase().startsWith("remove ") &&
     command.toLowerCase().endsWith(" from your todo")
   ) {
-    let start = command.indexOf("remove ") + 8;
+    let start = "remove ".length;
     let end = command.toLowerCase().indexOf(" from your todo");
     let item = command.slice(start, end);
     let itemCap = item.charAt(0).toUpperCase() + item.slice(1);
     let index = todos.indexOf(itemCap);
     if (index !== -1) {
+      todos.splice(index, 1);
       return `${itemCap} removed from your todos!`;
     } else {
       return `${itemCap} was not found in your todos!`;
@@ -66,10 +67,12 @@ function getReply(command) {
   }
 
   //5th dialogue
-  else if (
-    command.toLowerCase().startsWith("what is ") &&
-    !/[0-9]/.test(command)
-  ) {
+  else if (command.toLowerCase().includes("what is on my todo")) {
+    return todos.length > 0
+      ? `Your todos are: ${todos.join(", ")}`
+      : "Your todo list is empty!";
+  }
+  if (command.toLowerCase().startsWith("what is ") && !/[0-9]/.test(command)) {
     return `There are no numbers!`;
   } else if (command.toLowerCase().startsWith("what is ")) {
     let numbers = command.match(/-?\d+(?:\.\d+)?/g).map(Number);
@@ -114,9 +117,9 @@ function getReply(command) {
 
 //console.log(getReply("Hello my name is Narges"));
 // console.log(getReply("Add reading to my todo"));
-// console.log(getReply("Remove reading from your todo"));
+//console.log(getReply("Remove reading from your todo"));
 // console.log(getReply("What day is it today?"));
 // console.log(getReply("what is Hello World?"));
-// console.log(getReply("What is 12 + 5"));
+//console.log(getReply("What is 12 + 5"));
 //console.log(getReply("Set a timer for 1 minutes"));
 //console.log(getReply("My brain has logged out"));
