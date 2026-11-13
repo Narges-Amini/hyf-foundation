@@ -1,3 +1,5 @@
+//Given an array and an integer representing how many positions
+// to shift the array, return the shifted array.
 function shiftArray(arr, n) {
   if (arr.length === 0) {
     return arr;
