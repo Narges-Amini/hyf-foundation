@@ -1,0 +1,70 @@
+
+/* Common animation */
+.house-reveal {
+    animation: reveal 1.5s ease-in-out;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Gryffindor - Fire */
+.gryffindor {
+    color: #ae0001;
+    text-shadow: 0 0 15px #ff4500;
+    animation: fire 1s infinite alternate;
+}
+
+@keyframes fire {
+    from { text-shadow: 0 0 5px orange; }
+    to { text-shadow: 0 0 25px red, 0 0 40px orange; }
+}
+
+/* Hufflepuff - Golden glow */
+.hufflepuff {
+    color: #ecb939;
+    text-shadow: 0 0 15px gold;
+    animation: golden 1.5s infinite alternate;
+}
+
+@keyframes golden {
+    from { text-shadow: 0 0 5px gold; }
+    to { text-shadow: 0 0 30px gold; }
+}
+
+/* Ravenclaw - Ice */
+.ravenclaw {
+    color: #222f5b;
+    text-shadow: 0 0 15px #87cefa;
+    animation: ice 1.5s infinite alternate;
+}
+
+@keyframes ice {
+    from { text-shadow: 0 0 5px #87cefa; }
+    to { text-shadow: 0 0 30px white, 0 0 40px #87cefa; }
+}
+
+/* Slytherin - Green magic */
+.slytherin {
+    color: #2a623d;
+    text-shadow: 0 0 15px #50c878;
+    animation: magic 1.5s infinite alternate;
+}
+
+@keyframes magic {
+    from { text-shadow: 0 0 5px green; }
+    to { text-shadow: 0 0 30px #50c878, 0 0 40px green; }
+}
